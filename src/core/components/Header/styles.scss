@@ -1,0 +1,24 @@
+.header-container {
+    background: #00BFA6;
+    align-items: center;
+    color: white;
+}
+
+.main-menu {
+    display: flex;
+    font-size: 1.3rem;
+    justify-content: space-between;
+    
+    a {
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.5);
+
+        &.active{
+            font-weight: bold;
+            color: #FFF;
+        }
+        &:hover {
+            color: #FFF;
+        }
+    }
+}
