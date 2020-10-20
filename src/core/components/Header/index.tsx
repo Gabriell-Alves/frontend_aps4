@@ -8,7 +8,7 @@ const Header = () => (
         <div className="col-2">
             <h3>GeoPros</h3>
         </div>
-        <div className="col-6 offset-2">
+        <div className="col-6 offset-1">
             <ul className="main-menu">
                 <li>
                     <NavLink to="/" exact>Home</NavLink>

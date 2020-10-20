@@ -3,22 +3,58 @@ import { makeRequest } from '../../core/utils/request';
 import CardCoordinate from './components/CardCoordinate';
 import { CoordinateResponse } from '../../core/types/Coordinate';
 import './styles.scss'
+import Pagination from './components/Pagination';
 
 const Coordinate = () => {
 
     const [coordinates, setCoordinates] = useState<CoordinateResponse>();
+    const [params, setParams] = useState({
+        orderBy: "id",
+        ordination: 1,
+        page: 0
+    });
+
 
     useEffect(() => {
-        makeRequest({ url: '/coordinates' })
+        makeRequest({ url: `/coordinates/sort/${params.ordination}`, params: { orderBy: params.orderBy, page: params.page } })
             .then(response => setCoordinates(response.data));
-    }, [])
+    }, [params])
+
+    const handlerOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setParams(data => ({ ...data, [name]: value, page: 0 }));
+    }
 
     return (
-        <div className="coordinate-container pl-5">
-            <div className="components-ordination-content row m-3">
-                <button className="btn btn-secondary ">Quick Sort</button>
-                <button className="btn btn-primary ml-1">Selection Sort</button>
-                <button className="btn btn-dark ml-1">Bubble Sort</button>
+        <div className="coordinate-container container">
+            <div className="components-ordination-content row mt-3" >
+                <div className="col-4">
+                    <select
+                        name="ordination"
+                        value={params.ordination}
+                        className="btn btn-primary mr-2 btn-lg"
+                        onChange={handlerOnChange}
+                    >
+                        <option value="1">Selection Sort</option>
+                        <option value="2">Bubble Sort</option>
+                        <option value="3">Quick Sort</option>
+                    </select>
+                    <select
+                        name="orderBy"
+                        value={params.orderBy}
+                        className="btn btn-dark btn-lg"
+                        onChange={handlerOnChange}
+                    >
+                        <option value="id">Id</option>
+                        <option value="latitude">Latitude</option>
+                        <option value="longitude">Longitude</option>
+                        <option value="situation">Situação</option>
+                    </select>
+                </div>
+                <div className="col-1 offset-6">
+                <button type="button" className="btn btn-outline-primary btn-lg">Adicionar</button>
+                </div>
             </div>
             <div className=" mr-5">
                 <div className="coordinate-items-header row p-3">
@@ -43,6 +79,12 @@ const Coordinate = () => {
                 {coordinates && coordinates.content.map(item =>
                     <CardCoordinate coordinate={item} key={item.id} />)}
             </div>
+            {coordinates &&
+                <Pagination
+                    activePage={params.page}
+                    totalPages={coordinates.totalPages}
+                    onChange={page => setParams({ ...params, page })}
+                />}
         </div>
     );
 
