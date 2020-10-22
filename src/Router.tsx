@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './core/components/Header';
 import Home from './pages/Home';
 import Coordinate from './pages/Coordinate';
+import Ordination from './pages/Ordination';
 
 const Router = () => (
     <BrowserRouter>
@@ -15,7 +16,7 @@ const Router = () => (
                 <Coordinate/>
             </Route>
             <Route path="/ordinations">
-                <h1>Ordenações</h1>
+                <Ordination/>
             </Route>
         </Switch>
     </BrowserRouter>

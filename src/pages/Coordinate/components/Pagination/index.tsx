@@ -22,7 +22,7 @@ const Pagination = ({ totalPages, activePage, onChange }: Props) => {
                 onClick={() => onChange(activePage - 1)}
             />
             {items
-                .filter((item) => (item < activePage + 1 && item > activePage - 10))
+                .filter((item) => ((item < activePage + 1 && item > activePage - 10) || (activePage < 10 && item < 10)))
                 .map(item => (
                     <div
                         key={item}
