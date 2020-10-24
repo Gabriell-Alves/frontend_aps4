@@ -5,6 +5,7 @@ import { CoordinateResponse } from '../../core/types/Coordinate';
 import './styles.scss'
 import Pagination from './components/Pagination';
 import InfoLoader from './components/Loaders/InfoLoader';
+import { Link } from 'react-router-dom';
 
 const Coordinate = () => {
 
@@ -65,7 +66,9 @@ const Coordinate = () => {
                                 </select>
                             </div>
                             <div className="col-1 offset-6">
+                                <Link to="/coordinates/create">
                                 <button type="button" className="btn btn-outline-primary btn-lg">Adicionar</button>
+                                </Link>
                             </div>
                         </div>
                         <div className=" mr-5">

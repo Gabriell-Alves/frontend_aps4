@@ -4,6 +4,7 @@ import Header from './core/components/Header';
 import Home from './pages/Home';
 import Coordinate from './pages/Coordinate';
 import Ordination from './pages/Ordination';
+import CreateCoordinate from './pages/Coordinate/Create';
 
 const Router = () => (
     <BrowserRouter>
@@ -12,8 +13,11 @@ const Router = () => (
             <Route path="/" exact>
                 <Home/>
             </Route>
-            <Route path="/coordinates">
+            <Route path="/coordinates" exact>
                 <Coordinate/>
+            </Route>
+            <Route path="/coordinates/create">
+                <CreateCoordinate/>
             </Route>
             <Route path="/ordinations">
                 <Ordination/>

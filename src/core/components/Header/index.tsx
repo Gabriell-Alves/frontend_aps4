@@ -14,7 +14,7 @@ const Header = () => (
                     <NavLink to="/" exact>Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/coordinates">Cordenadas</NavLink>
+                    <NavLink to="/coordinates">Coordenadas</NavLink>
                 </li>
                 <li>
                     <NavLink to="/ordinations">Ordenação</NavLink>
