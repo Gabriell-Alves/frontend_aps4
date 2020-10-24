@@ -4,7 +4,7 @@ export type Ordination = {
     elements100: number;
 	elements1000: number;
 	elements10000: number;
-    elements100000: number;
+    elements5000: number;
 }
 
 export type Sortname = "SELECTION_SORT" | "BUBBLE_SORT" | "QUICK_SORT";

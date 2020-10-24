@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 
 const Header = () => (
-    <nav className="header-container row p-2">
+    <nav className="header-container row p-2 m-0">
         <div className="col-2">
             <h3>GeoPros</h3>
         </div>

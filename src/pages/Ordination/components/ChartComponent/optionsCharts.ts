@@ -10,7 +10,7 @@ export const ChartBar = {
             show: false,
         },
         xaxis: {
-            categories: ["Sort"],
+            categories: [""],
             labels: {
                 show: false,
             }
@@ -22,5 +22,47 @@ export const ChartBar = {
         axisTicks: {
             show: false,
         },
+        plotOptions: {
+            bar: {
+                horizontal: true,
+
+                barHeight: "70px",
+            },
+        },
+        type: "bar"
     },
 }
+
+export const ChartDonut = {
+    responsive: [{
+        breakpoint: 480,
+        options: {
+            chart: {
+                width: 200
+            },
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }],
+    legend: {
+        show: false,
+    },
+    tooltip: {
+        enabled: true,
+    },
+    dataLabels: {
+        enabled: false
+    },
+    colors: ['#33b2df', '#546E7A', '#00BFA6'],
+    plotOptions: {
+        pie: {
+            customScale: 1,
+            expandOnClick: true,
+            dataLabels: {
+                offset: 60,
+            },
+        },
+    },
+    type: 'donut'
+};
