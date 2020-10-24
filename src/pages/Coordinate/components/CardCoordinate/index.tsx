@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles.scss';
-import { ReactComponent as ImageGeo } from '../../../../core/assets/images/home-image.svg'
 import { Coordinate } from '../../../../core/types/Coordinate';
 import SituationComponent from '../SituationComponent';
+
 
 type Props = {
     coordinate: Coordinate;
@@ -11,7 +11,7 @@ type Props = {
 const CardCoordinate = ({ coordinate }: Props) => (
     <div className="card-container row p-3">
         <div className="col-3">
-            <ImageGeo className="card-image" />
+            <img src={coordinate.urlImage} alt="" className="card-image"/>
         </div>
         <div className="col-2">
             <h5>{coordinate.id}</h5>
